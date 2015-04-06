@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Stanford Dashboard Site feature.
+ */
+
+include_once 'stanford_dashboard_site.features.inc';
