@@ -13,6 +13,13 @@ function stanford_dashboard_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'additional_settings__active_tab_stanford_dashboard';
+  $strongarm->value = 'edit-submission';
+  $export['additional_settings__active_tab_stanford_dashboard'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__stanford_dashboard';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -74,6 +81,20 @@ function stanford_dashboard_strongarm() {
   $strongarm->name = 'node_submitted_stanford_dashboard';
   $strongarm->value = 0;
   $export['node_submitted_stanford_dashboard'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_stanford_dashboard_pattern';
+  $strongarm->value = 'dashboard/[node:title]';
+  $export['pathauto_node_stanford_dashboard_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'save_continue_stanford_dashboard';
+  $strongarm->value = 'Save and add fields';
+  $export['save_continue_stanford_dashboard'] = $strongarm;
 
   return $export;
 }
