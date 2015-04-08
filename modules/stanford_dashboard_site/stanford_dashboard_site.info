@@ -57,5 +57,5 @@ features[views_view][] = stanford_dashboard_site_by_user
 features[views_view][] = stanford_dashboard_site_manage
 features[views_view][] = stanford_dashboard_site_production_sites
 features_exclude[field_base][body] = body
-mtime = 1428522503
+mtime = 1428524974
 project path = sites/all/modules/stanford/stanford_dashboard/modules
