@@ -77,7 +77,7 @@ function stanford_dashboard_site_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 5,
+      'weight' => 8,
     ),
   );
 
@@ -144,6 +144,45 @@ function stanford_dashboard_site_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-stanford_dashboard_site-field_s_site_family'
+  $field_instances['node-stanford_dashboard_site-field_s_site_family'] = array(
+    'bundle' => 'stanford_dashboard_site',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_s_site_family',
+    'label' => 'Family',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 5,
     ),
   );
 
@@ -263,7 +302,7 @@ function stanford_dashboard_site_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 4,
+      'weight' => 7,
     ),
   );
 
@@ -279,9 +318,9 @@ function stanford_dashboard_site_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
+          'prefix_suffix' => 1,
           'scale' => 0,
-          'thousand_separator' => ' ',
+          'thousand_separator' => ',',
         ),
         'type' => 'number_integer',
         'weight' => 7,
@@ -441,9 +480,49 @@ function stanford_dashboard_site_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-stanford_dashboard_site-field_s_site_users'
+  $field_instances['node-stanford_dashboard_site-field_s_site_users'] = array(
+    'bundle' => 'stanford_dashboard_site',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'This references the users that are associated with this site.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_s_site_users',
+    'label' => 'Users',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 6,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Alert');
+  t('Family');
   t('ID');
   t('Link to view the site status report.');
   t('Notes');
@@ -452,8 +531,10 @@ function stanford_dashboard_site_field_default_field_instances() {
   t('Site URL');
   t('Status');
   t('This displays the amount of time it too to complete the check on the site.');
+  t('This references the users that are associated with this site.');
   t('This text field displays the unique ID for this site check on Pingdom.');
   t('Type');
+  t('Users');
 
   return $field_instances;
 }

@@ -21,7 +21,7 @@ function stanford_dashboard_site_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Response Info',
-    'weight' => '6',
+    'weight' => '9',
     'children' => array(
       0 => 'field_s_site_status',
       1 => 'field_s_site_alert',

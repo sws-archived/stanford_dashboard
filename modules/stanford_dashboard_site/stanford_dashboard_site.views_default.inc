@@ -242,7 +242,7 @@ function stanford_dashboard_site_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Manage Stanford Site';
+  $handler->display->display_options['title'] = 'Manage Dashboard Site';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'administer nodes';
@@ -264,6 +264,8 @@ function stanford_dashboard_site_views_default_views() {
     'status' => 'status',
     'changed' => 'changed',
     'name' => 'name',
+    'field_s_site_family' => 'field_s_site_family',
+    'field_s_site_users' => 'field_s_site_users',
     'field_s_site_id' => 'field_s_site_id',
     'field_s_site_type' => 'field_s_site_type',
     'field_s_site_url' => 'field_s_site_url',
@@ -313,6 +315,18 @@ function stanford_dashboard_site_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_s_site_family' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_s_site_users' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_s_site_id' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
@@ -328,7 +342,7 @@ function stanford_dashboard_site_views_default_views() {
       'empty_column' => 0,
     ),
     'field_s_site_url' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => ' ',
@@ -385,59 +399,67 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
     'action::node_assign_owner_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
+    ),
+    'action::node_convert_convert_action' => array(
+      'selected' => 0,
       'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
     ),
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
       'label' => 'Delete',
-      'postpone_processing' => 0,
     ),
-    'action::system_message_action' => array(
+    'action::views_bulk_operations_delete_revision' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::views_bulk_operations_script_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::node_make_sticky_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::node_make_unsticky_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
       'label' => 'Modify',
       'settings' => array(
         'show_all_tokens' => 1,
         'display_values' => array(
-          'stanford_page::field_s_image_info' => 'stanford_page::field_s_image_info',
-          'stanford_page::field_s_page_file' => 'stanford_page::field_s_page_file',
+          'stanford_dashboard_site::field_s_site_type' => 'stanford_dashboard_site::field_s_site_type',
+          'stanford_dashboard_site::field_s_site_users' => 'stanford_dashboard_site::field_s_site_users',
+          'stanford_dashboard_site::field_s_site_family' => 'stanford_dashboard_site::field_s_site_family',
         ),
       ),
-      'postpone_processing' => 0,
     ),
     'action::views_bulk_operations_argument_selector_action' => array(
       'selected' => 0,
@@ -450,66 +472,59 @@ function stanford_dashboard_site_views_default_views() {
     ),
     'action::node_promote_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::node_publish_action' => array(
       'selected' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
       'label' => 'Publish',
-      'postpone_processing' => 0,
-    ),
-    'action::system_goto_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::node_unpromote_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::node_save_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::system_send_email_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::node_unpublish_action' => array(
       'selected' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
       'label' => 'Unpublish',
-      'postpone_processing' => 0,
     ),
     'action::node_unpublish_by_keyword_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
     'action::pathauto_node_update_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
-      'postpone_processing' => 0,
     ),
   );
   /* Field: Content: Title */
@@ -533,6 +548,21 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Author';
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Field: Content: Family */
+  $handler->display->display_options['fields']['field_s_site_family']['id'] = 'field_s_site_family';
+  $handler->display->display_options['fields']['field_s_site_family']['table'] = 'field_data_field_s_site_family';
+  $handler->display->display_options['fields']['field_s_site_family']['field'] = 'field_s_site_family';
+  $handler->display->display_options['fields']['field_s_site_family']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Users */
+  $handler->display->display_options['fields']['field_s_site_users']['id'] = 'field_s_site_users';
+  $handler->display->display_options['fields']['field_s_site_users']['table'] = 'field_data_field_s_site_users';
+  $handler->display->display_options['fields']['field_s_site_users']['field'] = 'field_s_site_users';
+  $handler->display->display_options['fields']['field_s_site_users']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_s_site_users']['delta_offset'] = '0';
   /* Field: Content: ID */
   $handler->display->display_options['fields']['field_s_site_id']['id'] = 'field_s_site_id';
   $handler->display->display_options['fields']['field_s_site_id']['table'] = 'field_data_field_s_site_id';
