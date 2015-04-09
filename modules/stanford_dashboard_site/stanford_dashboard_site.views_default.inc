@@ -22,7 +22,6 @@ function stanford_dashboard_site_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Stanford Dashboard Site: at a Glance';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -145,13 +144,11 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['arguments']['field_s_site_status_tid']['validate_options']['vocabularies'] = array(
     'stanford_dashboard_site_status' => 'stanford_dashboard_site_status',
   );
-  /* Filter criterion: User: Active */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'users';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: User: Current */
+  $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
+  $handler->display->display_options['filters']['uid_current']['table'] = 'users';
+  $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
+  $handler->display->display_options['filters']['uid_current']['value'] = '1';
 
   /* Display: Up Block */
   $handler = $view->new_display('block', 'Up Block', 'up_block');
@@ -250,7 +247,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/dashboard/sites?title=&field_s_site_status_tid=[tid]">[field_s_site_status] [field_s_site_status_1]</a>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h3><a href="/dashboard/sites?title=&field_s_site_status_tid=[tid]">[field_s_site_status] [field_s_site_status_1]</a></h3>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['displays'] = array(
     'up_block' => 'up_block',
