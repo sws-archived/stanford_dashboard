@@ -33,4 +33,3 @@ features[variable][] = pathauto_node_stanford_dashboard_pattern
 features[variable][] = save_continue_stanford_dashboard
 features_exclude[field_base][body] = body
 mtime = 1428363745
-project path = sites/all/modules/stanford
