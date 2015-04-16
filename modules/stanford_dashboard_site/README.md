@@ -8,7 +8,21 @@ Maintainers: [jbickar](https://github.com/jbickar), [cjwest](https://github.com/
 **[Stanford Dashboard Site](modules/stanford_dashboard_site)**
 A content type and collection of default views for use with the dashboard. 
 
+* Views *
+Manage Dashboard Site
+Provides a bulk view for managing and editing site information.
 
+Stanford Dashboard Site: by user
+A view that displays site information in a dasboard style. This has two displays:
+1. A page display for a typical user at dashboard/sites. This shows only the sites associated with the currently logged in user. 
+2. A page display for an administrator at dashboard/sites/admin. This shows all the sites for users with the administrator role.
+
+Stanford Dashboard Site: at a glance
+This view has six block displays which summarize site status information for both the current user and the admin. For each audience the blocks are Up, Paused, and Down.
+
+Stanford Dashboard Site: Production sites
+This view provides a list of all production sites. This is an entity reference display for use on the node edit form for the Site content type. It allows the user to select only production sites, and is used to put sites into groups or "families."
+ 
 Installation
 ---
 
