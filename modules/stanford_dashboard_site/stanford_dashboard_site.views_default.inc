@@ -767,7 +767,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['arguments']['field_s_site_status_tid']['field'] = 'field_s_site_status_tid';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '20';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '22';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary_options']['items_per_page'] = '25';
@@ -793,7 +793,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['filters']['type']['group'] = 1;
 
   /* Display: Up Block */
-  $handler = $view->new_display('block', 'Up Block', 'block');
+  $handler = $view->new_display('block', 'Up Block', 'up_block');
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Status (field_s_site_status) */
   $handler->display->display_options['arguments']['field_s_site_status_tid']['id'] = 'field_s_site_status_tid';
@@ -812,8 +812,10 @@ function stanford_dashboard_site_views_default_views() {
   );
 
   /* Display: Status Attachment */
-  $handler = $view->new_display('attachment', 'Status Attachment', 'attachment_1');
+  $handler = $view->new_display('attachment', 'Status Attachment', 'status_attachment');
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: COUNT(Content: Status) */
   $handler->display->display_options['fields']['field_s_site_status']['id'] = 'field_s_site_status';
@@ -849,8 +851,32 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h3><a href="/dashboard/sites/admin?title=&field_s_site_status_tid=[tid]">[field_s_site_status] [field_s_site_status_1]</a></h3>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['displays'] = array(
-    'block' => 'block',
-    'default' => 0,
+    'default' => 'default',
+    'up_block' => 'up_block',
+    'paused_block' => 'paused_block',
+    'down_block' => 'down_block',
+  );
+
+  /* Display: Paused Block */
+  $handler = $view->new_display('block', 'Paused Block', 'paused_block');
+
+  /* Display: Down Block */
+  $handler = $view->new_display('block', 'Down Block', 'down_block');
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Status (field_s_site_status) */
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['id'] = 'field_s_site_status_tid';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['table'] = 'field_data_field_s_site_status';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['field'] = 'field_s_site_status_tid';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '21';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['validate_options']['vocabularies'] = array(
+    'stanford_dashboard_site_status' => 'stanford_dashboard_site_status',
   );
   $export['stanford_dashboard_site_glance_for_admins'] = $view;
 

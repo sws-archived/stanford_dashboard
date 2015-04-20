@@ -27,23 +27,23 @@ function stanford_dashboard_site_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-36b2b131e9da0e88a61b8b860852b63e' => array(
+        'views-b371b45a0117e38782d2c3b08c235478' => array(
           'module' => 'views',
-          'delta' => '36b2b131e9da0e88a61b8b860852b63e',
-          'region' => 'content_top',
-          'weight' => '-7',
+          'delta' => 'b371b45a0117e38782d2c3b08c235478',
+          'region' => 'content_upper',
+          'weight' => '-10',
         ),
-        'views-51b26d48fb7b20d6cbb898c1af046a57' => array(
+        'views-4872cfb79016baf6f510b3ca2da98c61' => array(
           'module' => 'views',
-          'delta' => '51b26d48fb7b20d6cbb898c1af046a57',
-          'region' => 'content_top',
-          'weight' => '-6',
+          'delta' => '4872cfb79016baf6f510b3ca2da98c61',
+          'region' => 'content_upper',
+          'weight' => '-9',
         ),
-        'views-45ab2fde4f85ca38a600c68ff0beb47e' => array(
+        'views-1c7452c67ae0705c0939baa47d0cd496' => array(
           'module' => 'views',
-          'delta' => '45ab2fde4f85ca38a600c68ff0beb47e',
-          'region' => 'content_top',
-          'weight' => '-5',
+          'delta' => '1c7452c67ae0705c0939baa47d0cd496',
+          'region' => 'content_upper',
+          'weight' => '-8',
         ),
       ),
     ),
