@@ -282,13 +282,6 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'field_s_site_family',
-      'rendered' => 0,
-      'rendered_strip' => 0,
-    ),
-  );
   $handler->display->display_options['style_options']['columns'] = array(
     'field_s_site_type_1' => 'field_s_site_type_1',
     'field_s_site_status' => 'field_s_site_status',
@@ -310,14 +303,14 @@ function stanford_dashboard_site_views_default_views() {
       'empty_column' => 0,
     ),
     'field_s_site_status' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => ' ',
@@ -331,28 +324,28 @@ function stanford_dashboard_site_views_default_views() {
       'empty_column' => 0,
     ),
     'field_s_site_type' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_s_site_response_time' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_s_site_alert' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_s_site_family' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -473,16 +466,21 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'reverse_field_s_site_users_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
-  $handler->display->display_options['sorts']['title']['relationship'] = 'reverse_field_s_site_users_node';
+  /* Sort criterion: Content: Family (field_s_site_family) */
+  $handler->display->display_options['sorts']['field_s_site_family_target_id']['id'] = 'field_s_site_family_target_id';
+  $handler->display->display_options['sorts']['field_s_site_family_target_id']['table'] = 'field_data_field_s_site_family';
+  $handler->display->display_options['sorts']['field_s_site_family_target_id']['field'] = 'field_s_site_family_target_id';
+  $handler->display->display_options['sorts']['field_s_site_family_target_id']['relationship'] = 'reverse_field_s_site_users_node';
   /* Sort criterion: Taxonomy term: Weight */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight']['relationship'] = 'term_node_tid';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['relationship'] = 'reverse_field_s_site_users_node';
   /* Filter criterion: User: Current */
   $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['table'] = 'users';
