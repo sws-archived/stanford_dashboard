@@ -36,6 +36,14 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = '<h3>0 %1</h3>';
+  $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
+  $handler->display->display_options['empty']['area']['tokenize'] = TRUE;
   /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_s_site_users_node']['id'] = 'reverse_field_s_site_users_node';
   $handler->display->display_options['relationships']['reverse_field_s_site_users_node']['table'] = 'users';
@@ -121,6 +129,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['tid']['label'] = '';
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
   /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
@@ -130,6 +139,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['label'] = '';
   $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid_1']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['tid_1']['separator'] = '';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
@@ -151,7 +161,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['arguments']['field_s_site_status_tid']['relationship'] = 'reverse_field_s_site_users_node';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '22';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '21';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary_options']['items_per_page'] = '25';
@@ -230,6 +240,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler = $view->new_display('attachment', 'Status Attachment', 'status_attachment');
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -248,6 +259,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['field_s_site_status']['label'] = '';
   $handler->display->display_options['fields']['field_s_site_status']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_s_site_status']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_site_status']['hide_alter_empty'] = FALSE;
   /* Field: Content: Status */
   $handler->display->display_options['fields']['field_s_site_status_1']['id'] = 'field_s_site_status_1';
   $handler->display->display_options['fields']['field_s_site_status_1']['table'] = 'field_data_field_s_site_status';
@@ -256,6 +268,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['field_s_site_status_1']['label'] = '';
   $handler->display->display_options['fields']['field_s_site_status_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_s_site_status_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_site_status_1']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_s_site_status_1']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
@@ -266,10 +279,11 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Field: Global: Custom text */
+  /* Field: Global: View rewrite */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Global: View rewrite';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h3><a href="/dashboard/sites?title=&field_s_site_status_tid=[tid]">[field_s_site_status] [field_s_site_status_1]</a></h3>';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
@@ -313,7 +327,15 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_s_site_family',
+      'rendered' => 0,
+      'rendered_strip' => 0,
+    ),
+  );
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_s_site_url_1' => 'field_s_site_url_1',
     'field_s_site_type_1' => 'field_s_site_type_1',
     'field_s_site_status' => 'field_s_site_status',
     'title' => 'title',
@@ -323,9 +345,18 @@ function stanford_dashboard_site_views_default_views() {
     'field_s_site_alert' => 'field_s_site_alert',
     'field_s_site_family' => 'field_s_site_family',
     'edit_node' => 'title',
+    'field_s_site_report' => 'field_s_site_report',
+    'nothing' => 'nothing',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'field_s_site_url_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_s_site_type_1' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -383,6 +414,18 @@ function stanford_dashboard_site_views_default_views() {
       'empty_column' => 0,
     ),
     'edit_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_s_site_report' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -544,11 +587,6 @@ function stanford_dashboard_site_views_default_views() {
 
   </ul>
 </div>';
-  /* Sort criterion: Content: Family (field_s_site_family) */
-  $handler->display->display_options['sorts']['field_s_site_family_target_id']['id'] = 'field_s_site_family_target_id';
-  $handler->display->display_options['sorts']['field_s_site_family_target_id']['table'] = 'field_data_field_s_site_family';
-  $handler->display->display_options['sorts']['field_s_site_family_target_id']['field'] = 'field_s_site_family_target_id';
-  $handler->display->display_options['sorts']['field_s_site_family_target_id']['relationship'] = 'reverse_field_s_site_users_node';
   /* Sort criterion: Taxonomy term: Weight */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
