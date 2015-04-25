@@ -22,7 +22,11 @@ Install this module like any other module. [See Drupal Documentation](https://dr
 Configuration
 ---
 
-Nothing special needed.
+Steps neede to configure include:
+create terms for site type and status taxonomies,
+since view display sites acording to the order of the terms, adjust order of these terms in the vocabulary
+update contextual filters in views with term IDs.
+Create content: production sites establish the site "families," and these nodes must exist to be able to group development and production sites.
 
 Troubleshooting
 ---
