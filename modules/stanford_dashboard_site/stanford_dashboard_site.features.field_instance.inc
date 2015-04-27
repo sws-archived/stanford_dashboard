@@ -311,7 +311,7 @@ function stanford_dashboard_site_field_default_field_instances() {
     'bundle' => 'stanford_dashboard_site',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'This displays the amount of time it too to complete the check on the site.',
+    'description' => 'This displays the amount of time it took to complete the check on the site.',
     'display' => array(
       'default' => array(
         'label' => 'above',
