@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * Schema definitions.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function stanford_pingdash_schema() {
+  $schema = array();
+  $schema['stanford_pingdash_nid'] = array(
+    'description' => 'Map of node nids to Pingdom check IDs',
+    'fields' => array(
+      'nid' => array(
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => '',
+        'unsigned' => 1,
+      ),
+      'check_id' => array(
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => FALSE,
+        'description' => '',
+        'unsigned' => 1,
+      ),
+    ),
+    'name' => 'stanford_pingdash_nid',
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+      'check_id' => array(
+        0 => 'check_id',
+      ),
+    ),
+    'primary key' => array(
+      0 => 'nid',
+    ),
+  );
+  return $schema;
+}

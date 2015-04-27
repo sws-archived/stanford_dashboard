@@ -1,0 +1,38 @@
+<?php
+/**
+ * @file
+ * Code for the Stanford Pingdom Dashboard Connector module.
+ */
+
+/**
+ * Populate the stanford_pingdash_nid table with a map of nids and Pingdom check_ids.
+ */
+function stanford_pingdash_update_map() {
+  $checks = pingdom_api_wsclient_get_check_list();
+  $checks = $checks['checks'];
+  foreach ($checks as $check) {
+    $check_id = $check['id'];
+    // maps to field_s_site_id
+    // $nid = select entity_id from field_data_field_s_site_id where field_s_site_id_value == $check_id
+    // db_merge stanford_pingdash_nid set nid = $nid where check_id = $check_id
+  }
+}
+
+/**
+ * Update the nodes.
+ */
+function stanford_pingdash_update_nodes() {
+  $checks = pingdom_api_wsclient_get_check_list();
+  $checks = $checks['checks'];
+  foreach ($checks as $check) {
+    $check_id = $check['id'];
+    // maps to field_s_site_id
+    // $nid = select entity_id from field_data_field_s_site_id where field_s_site_id_value == $check_id
+    // $node = node_load($nid);
+    // $node->field_s_site_status = $check['status'];
+    // $node->field_s_site_response_time = $check['lastresponsetime'];
+    // node_save($node);
+
+  }
+
+}
