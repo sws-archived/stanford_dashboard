@@ -14,7 +14,21 @@ function stanford_pingdash_update_map() {
     $check_id = $check['id'];
     // maps to field_s_site_id
     // $nid = select entity_id from field_data_field_s_site_id where field_s_site_id_value == $check_id
+    $query = db_select('field_data_field_s_site_id', 's')
+    ->fields('s', array('entity_id'))
+    ->condition('field_s_site_id_value', $check_id, '=')
+    ->execute();
+    $nid = $query->fetchAssoc();
     // db_merge stanford_pingdash_nid set nid = $nid where check_id = $check_id
+    if(is_int($nid)) {
+      $result = db_merge('stanford_pingdash_nid')
+      ->key(array('nid' => $nid))
+      ->fields(array(
+        'check_id' => $check_id,
+        'nid' => $nid,
+      ))
+      ->execute();
+    }
   }
 }
 
