@@ -40,28 +40,29 @@ function stanford_pingdash_update_nodes() {
   $checks = $checks['checks'];
   foreach ($checks as $check) {
     $check_id = $check['id'];
-    // maps to field_s_site_id
-    // $nid = select entity_id from field_data_field_s_site_id where field_s_site_id_value == $check_id
+    // Load the node that corresponds with the given check ID.
+    // See https://www.drupal.org/node/1343708.
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', 'stanford_dashboard_site')
       ->fieldCondition('field_s_site_id', 'value', $check_id, '=');
     $result = $query->execute();
-    if (isset($result['node'])) {
-      $nids = array_keys($result['node']);
-      // $node = node_load($nid);
-      $nodes = entity_load('node', $nids);
-//      dpm($nodes);
-    }
-    foreach ($nodes as $node) {
+    // There should be only one node with the given check_id
+    if((isset($result['node'])) && (count($result['node']) == 1)) {
+      // We can rely on the array key being the nid?
+      reset($result['node']);
+      $nid = key($result['node']);
+      $node = node_load($nid);
+      // There should only be one term with this name in the vocabulary
       $term = taxonomy_get_term_by_name($check['status'], 'stanford_dashboard_site_status');
-//      dpm($term);
-      $tid = array_keys($term);
-      $tid = $tid[0];
-//      dpm($tid);
-      $node->field_s_site_status[LANGUAGE_NONE][0]['tid'] = $tid;
-      $node->field_s_site_response_time[LANGUAGE_NONE][0]['value'] = $check['lastresponsetime'];
-      node_save($node);
+      if(count($term) == 1) {
+        // We can rely on the array key being the term id?
+        reset($term);
+        $tid = key($term);
+        $node->field_s_site_status[LANGUAGE_NONE][0]['tid'] = $tid;
+        $node->field_s_site_response_time[LANGUAGE_NONE][0]['value'] = $check['lastresponsetime'];
+        node_save($node);
+      }
     }
   }
 }
