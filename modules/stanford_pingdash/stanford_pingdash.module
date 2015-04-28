@@ -42,11 +42,20 @@ function stanford_pingdash_update_nodes() {
     $check_id = $check['id'];
     // maps to field_s_site_id
     // $nid = select entity_id from field_data_field_s_site_id where field_s_site_id_value == $check_id
-    // $node = node_load($nid);
-    // $node->field_s_site_status = $check['status'];
-    // $node->field_s_site_response_time = $check['lastresponsetime'];
-    // node_save($node);
-
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', 'stanford_dashboard_site')
+      ->fieldCondition('field_s_site_id', 'value', $check_id, '=');
+    $result = $query->execute();
+    if (isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      // $node = node_load($nid);
+      $nodes = entity_load('node', $nids);
+    }
+    foreach ($nodes as $node) {
+      $node->field_s_site_status = $check['status'];
+      $node->field_s_site_response_time = $check['lastresponsetime'];
+      node_save($node);
+    }
   }
-
 }
