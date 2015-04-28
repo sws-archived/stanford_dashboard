@@ -51,10 +51,16 @@ function stanford_pingdash_update_nodes() {
       $nids = array_keys($result['node']);
       // $node = node_load($nid);
       $nodes = entity_load('node', $nids);
+//      dpm($nodes);
     }
     foreach ($nodes as $node) {
-      $node->field_s_site_status = $check['status'];
-      $node->field_s_site_response_time = $check['lastresponsetime'];
+      $term = taxonomy_get_term_by_name($check['status'], 'stanford_dashboard_site_status');
+//      dpm($term);
+      $tid = array_keys($term);
+      $tid = $tid[0];
+//      dpm($tid);
+      $node->field_s_site_status[LANGUAGE_NONE][0]['tid'] = $tid;
+      $node->field_s_site_response_time[LANGUAGE_NONE][0]['value'] = $check['lastresponsetime'];
       node_save($node);
     }
   }
