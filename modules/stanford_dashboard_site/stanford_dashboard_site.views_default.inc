@@ -441,20 +441,21 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['relationship'] = 'reverse_field_s_site_users_node';
+  $handler->display->display_options['relationships']['term_node_tid']['label'] = 'Site Type';
   $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
     'stanford_dashboard_site_type' => 'stanford_dashboard_site_type',
-    'stanford_event_type' => 0,
-    'stanford_faculty_type' => 0,
-    'stanford_field_of_study' => 0,
-    'stanford_interests' => 0,
-    'news_categories' => 0,
-    'publication_type' => 0,
     'stanford_dashboard_site_status' => 0,
-    'stanford_slide_category' => 0,
-    'stanford_staff_type' => 0,
-    'stanford_event_audience' => 0,
-    'stanford_event_categories' => 0,
-    'stanford_student_type' => 0,
+    'tags' => 0,
+  );
+  /* Relationship: Content: Taxonomy terms on node */
+  $handler->display->display_options['relationships']['term_node_tid_1']['id'] = 'term_node_tid_1';
+  $handler->display->display_options['relationships']['term_node_tid_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid_1']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid_1']['relationship'] = 'reverse_field_s_site_users_node';
+  $handler->display->display_options['relationships']['term_node_tid_1']['label'] = 'Site Status';
+  $handler->display->display_options['relationships']['term_node_tid_1']['vocabularies'] = array(
+    'stanford_dashboard_site_status' => 'stanford_dashboard_site_status',
+    'stanford_dashboard_site_type' => 0,
     'tags' => 0,
   );
   /* Field: Content: Site URL */
@@ -476,18 +477,13 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['field_s_site_type_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_s_site_type_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_site_type_1']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Status */
-  $handler->display->display_options['fields']['field_s_site_status']['id'] = 'field_s_site_status';
-  $handler->display->display_options['fields']['field_s_site_status']['table'] = 'field_data_field_s_site_status';
-  $handler->display->display_options['fields']['field_s_site_status']['field'] = 'field_s_site_status';
-  $handler->display->display_options['fields']['field_s_site_status']['relationship'] = 'reverse_field_s_site_users_node';
-  $handler->display->display_options['fields']['field_s_site_status']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_s_site_status']['alter']['text'] = '<div class="[field_s_site_status]">[field_s_site_status]</div>';
-  $handler->display->display_options['fields']['field_s_site_status']['element_type'] = 'div';
-  $handler->display->display_options['fields']['field_s_site_status']['element_label_type'] = 'div';
-  $handler->display->display_options['fields']['field_s_site_status']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_s_site_status']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_s_site_status']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Taxonomy term: Human-Readable Label */
+  $handler->display->display_options['fields']['field_s_term_status_label']['id'] = 'field_s_term_status_label';
+  $handler->display->display_options['fields']['field_s_term_status_label']['table'] = 'field_data_field_s_term_status_label';
+  $handler->display->display_options['fields']['field_s_term_status_label']['field'] = 'field_s_term_status_label';
+  $handler->display->display_options['fields']['field_s_term_status_label']['relationship'] = 'term_node_tid_1';
+  $handler->display->display_options['fields']['field_s_term_status_label']['label'] = 'Status';
+  $handler->display->display_options['fields']['field_s_term_status_label']['type'] = 'text_plain';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
