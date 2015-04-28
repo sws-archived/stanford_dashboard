@@ -5,6 +5,19 @@
  */
 
 /**
+ * Implements hook_menu().
+ */
+function stanford_pingdash_menu() {
+  $items['admin/config/services/pingdomapi/stanford-dashboard-refresh'] = array(
+    'title' => 'Refresh Dashboard Information from Pingdom',
+    'type' => MENU_CALLBACK,
+    'page callback' => '_stanford_pingdash_refresh',
+    'access arguments' =>  array('administer site configuration'),
+  );
+  return $items;
+
+}
+/**
  * Populate the stanford_pingdash_nid table with a map of nids and Pingdom check_ids.
  */
 function stanford_pingdash_update_map() {
@@ -65,4 +78,14 @@ function stanford_pingdash_update_nodes() {
       }
     }
   }
+  watchdog('stanford_pingdash', t("Updated site information from Pingdom."));
+}
+
+/**
+ * Wrapper function for menu callback.
+ */
+function _stanford_pingdash_refresh() {
+  stanford_pingdash_update_nodes();
+  drupal_set_message(t("Updated site information from Pingdom."));
+  drupal_goto('admin/config/services/pingdomapi');
 }
