@@ -38,7 +38,7 @@ function stanford_pingdash_schema() {
       ),
     ),
     'primary key' => array(
-      0 => 'nid',
+      0 => 'check_id',
     ),
   );
   return $schema;
