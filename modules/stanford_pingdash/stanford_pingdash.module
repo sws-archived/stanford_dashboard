@@ -87,4 +87,5 @@ function stanford_pingdash_update_nodes() {
 function _stanford_pingdash_refresh() {
   stanford_pingdash_update_nodes();
   drupal_set_message(t("Updated site information from Pingdom."));
+  drupal_goto('admin/config/services/pingdomapi');
 }
