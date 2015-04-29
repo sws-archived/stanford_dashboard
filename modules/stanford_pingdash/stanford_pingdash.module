@@ -12,7 +12,7 @@ function stanford_pingdash_menu() {
     'title' => 'Refresh Dashboard Information from Pingdom',
     'type' => MENU_CALLBACK,
     'page callback' => '_stanford_pingdash_refresh',
-    'access arguments' =>  array('administer site configuration'),
+    'access arguments' =>  array('get pingdom check list'),
   );
   return $items;
 
