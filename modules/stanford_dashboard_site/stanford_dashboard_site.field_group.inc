@@ -23,9 +23,10 @@ function stanford_dashboard_site_field_group_info() {
     'label' => 'Response Info',
     'weight' => '9',
     'children' => array(
-      0 => 'field_s_site_status',
-      1 => 'field_s_site_alert',
-      2 => 'field_s_site_response_time',
+      0 => 'field_s_site_alert',
+      1 => 'field_s_site_response_time',
+      2 => 'field_s_site_status',
+      3 => 'field_s_site_last_test_time',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

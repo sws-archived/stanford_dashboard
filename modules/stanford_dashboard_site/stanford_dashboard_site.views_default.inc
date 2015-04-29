@@ -477,12 +477,31 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['field_s_site_type_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_s_site_type_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_site_type_1']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Last Checked */
+  $handler->display->display_options['fields']['field_s_site_last_test_time']['id'] = 'field_s_site_last_test_time';
+  $handler->display->display_options['fields']['field_s_site_last_test_time']['table'] = 'field_data_field_s_site_last_test_time';
+  $handler->display->display_options['fields']['field_s_site_last_test_time']['field'] = 'field_s_site_last_test_time';
+  $handler->display->display_options['fields']['field_s_site_last_test_time']['relationship'] = 'reverse_field_s_site_users_node';
+  $handler->display->display_options['fields']['field_s_site_last_test_time']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_site_last_test_time']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_site_last_test_time']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Field: Taxonomy term: Human-Readable Label */
   $handler->display->display_options['fields']['field_s_term_status_label']['id'] = 'field_s_term_status_label';
   $handler->display->display_options['fields']['field_s_term_status_label']['table'] = 'field_data_field_s_term_status_label';
   $handler->display->display_options['fields']['field_s_term_status_label']['field'] = 'field_s_term_status_label';
   $handler->display->display_options['fields']['field_s_term_status_label']['relationship'] = 'term_node_tid_1';
   $handler->display->display_options['fields']['field_s_term_status_label']['label'] = 'Status';
+  $handler->display->display_options['fields']['field_s_term_status_label']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_s_term_status_label']['alter']['text'] = '<p>[field_s_term_status_label]</p>
+<p><strong>Last Checked:</strong> [field_s_site_last_test_time]</p>';
+  $handler->display->display_options['fields']['field_s_term_status_label']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_s_term_status_label']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_s_term_status_label']['type'] = 'text_plain';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -520,7 +539,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['field_s_site_response_time']['table'] = 'field_data_field_s_site_response_time';
   $handler->display->display_options['fields']['field_s_site_response_time']['field'] = 'field_s_site_response_time';
   $handler->display->display_options['fields']['field_s_site_response_time']['relationship'] = 'reverse_field_s_site_users_node';
-  $handler->display->display_options['fields']['field_s_site_response_time']['label'] = 'Response';
+  $handler->display->display_options['fields']['field_s_site_response_time']['label'] = 'Response Time';
   $handler->display->display_options['fields']['field_s_site_response_time']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_s_site_response_time']['alter']['text'] = '[field_s_site_response_time]ms';
   $handler->display->display_options['fields']['field_s_site_response_time']['element_type'] = 'div';
@@ -536,6 +555,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['field_s_site_alert']['table'] = 'field_data_field_s_site_alert';
   $handler->display->display_options['fields']['field_s_site_alert']['field'] = 'field_s_site_alert';
   $handler->display->display_options['fields']['field_s_site_alert']['relationship'] = 'reverse_field_s_site_users_node';
+  $handler->display->display_options['fields']['field_s_site_alert']['empty'] = 'N/A';
   /* Field: Content: Family */
   $handler->display->display_options['fields']['field_s_site_family']['id'] = 'field_s_site_family';
   $handler->display->display_options['fields']['field_s_site_family']['table'] = 'field_data_field_s_site_family';
@@ -576,7 +596,8 @@ function stanford_dashboard_site_views_default_views() {
   <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <b class="caret"></b></a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-    <li><a tabindex="-1" href="[field_s_site_report]">View Status</a></li>
+    <li><a tabindex="-1" href="[field_s_site_report]">View Detailed Report</a></li>
+    <li><a tabindex="-1" href="[field_s_site_url]">Visit Site</a></li>
     <li><a tabindex="-1" href="#">Pause Monitoring</a></li>
     <li class="disabled"><a tabindex="-1" href="#">Stop Server (Disabled)</a></li>
     <li class="disabled"><a tabindex="-1" href="#">Delete (Disabled)</a></li>

@@ -74,6 +74,7 @@ function stanford_pingdash_update_nodes() {
         $tid = key($term);
         $node->field_s_site_status[LANGUAGE_NONE][0]['tid'] = $tid;
         $node->field_s_site_response_time[LANGUAGE_NONE][0]['value'] = $check['lastresponsetime'];
+        $node->field_s_site_last_test_time[LANGUAGE_NONE][0]['value'] = $check['lasttesttime'];
         node_save($node);
       }
     }
