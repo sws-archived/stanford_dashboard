@@ -206,7 +206,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['arguments']['field_s_site_status_tid']['relationship'] = 'reverse_field_s_site_users_node';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '22';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '13';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary_options']['items_per_page'] = '25';
@@ -226,7 +226,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['arguments']['field_s_site_status_tid']['relationship'] = 'reverse_field_s_site_users_node';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '21';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '9';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary_options']['items_per_page'] = '25';
@@ -980,7 +980,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['arguments']['field_s_site_status_tid']['field'] = 'field_s_site_status_tid';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '20';
+  $handler->display->display_options['arguments']['field_s_site_status_tid']['default_argument_options']['argument'] = '7';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_s_site_status_tid']['summary_options']['items_per_page'] = '25';
