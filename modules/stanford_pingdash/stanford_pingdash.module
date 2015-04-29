@@ -14,6 +14,14 @@ function stanford_pingdash_menu() {
     'page callback' => '_stanford_pingdash_refresh',
     'access arguments' =>  array('get pingdom check list'),
   );
+  // admin/config/services/pingdomapi/pause-monitoring/(true|false)/<checkid>
+  $items['admin/config/services/pingdomapi/pause-monitoring/%/%'] = array(
+    'title' => 'Pause Pingdom Check',
+    'type' => MENU_CALLBACK,
+    'page callback' => '_stanford_pingdash_pause_toggle',
+    'access arguments' =>  array('pause pingdom checks'),
+    'page arguments' => array(5,6),
+  );
   return $items;
 
 }
@@ -83,10 +91,24 @@ function stanford_pingdash_update_nodes() {
 }
 
 /**
- * Wrapper function for menu callback.
+ * Wrapper function for refresh menu callback.
  */
 function _stanford_pingdash_refresh() {
   stanford_pingdash_update_nodes();
   drupal_set_message(t("Updated site information from Pingdom."));
+  drupal_goto('admin/config/services/pingdomapi');
+}
+
+/**
+ * Wrapper function for pause menu callback.
+ */
+function _stanford_pingdash_pause_toggle($pause, $checkid) {
+  pingdom_api_wsclient_modify_multiple_checks($pause, 1, $checkid);
+  if($pause == "true") {
+    drupal_set_message(t("Paused site monitoring."));
+  }
+  elseif($pause == "false") {
+    drupal_set_message(t("Un-paused site monitoring."));
+  }
   drupal_goto('admin/config/services/pingdomapi');
 }
