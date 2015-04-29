@@ -10,15 +10,6 @@
 function stanford_dashboard_site_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'access site reports'.
-  $permissions['access site reports'] = array(
-    'name' => 'access site reports',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'system',
-  );
-
   // Exported permission: 'create stanford_dashboard_site content'.
   $permissions['create stanford_dashboard_site content'] = array(
     'name' => 'create stanford_dashboard_site content',
@@ -49,14 +40,18 @@ function stanford_dashboard_site_user_default_permissions() {
   // Exported permission: 'delete terms in stanford_dashboard_site_status'.
   $permissions['delete terms in stanford_dashboard_site_status'] = array(
     'name' => 'delete terms in stanford_dashboard_site_status',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in stanford_dashboard_site_type'.
   $permissions['delete terms in stanford_dashboard_site_type'] = array(
     'name' => 'delete terms in stanford_dashboard_site_type',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -88,7 +83,9 @@ function stanford_dashboard_site_user_default_permissions() {
   // Exported permission: 'edit terms in stanford_dashboard_site_type'.
   $permissions['edit terms in stanford_dashboard_site_type'] = array(
     'name' => 'edit terms in stanford_dashboard_site_type',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 

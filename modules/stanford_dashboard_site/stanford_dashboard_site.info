@@ -53,7 +53,6 @@ features[field_instance][] = taxonomy_term-stanford_dashboard_site_status-field_
 features[node][] = stanford_dashboard_site
 features[taxonomy][] = stanford_dashboard_site_status
 features[taxonomy][] = stanford_dashboard_site_type
-features[user_permission][] = access site reports
 features[user_permission][] = create stanford_dashboard_site content
 features[user_permission][] = delete any stanford_dashboard_site content
 features[user_permission][] = delete own stanford_dashboard_site content
