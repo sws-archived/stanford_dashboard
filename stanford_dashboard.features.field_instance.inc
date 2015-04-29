@@ -255,6 +255,7 @@ function stanford_dashboard_field_default_field_instances() {
   // Exported field_instance: 'node-stanford_dashboard-field_s_dashboard_last_update'
   $field_instances['node-stanford_dashboard-field_s_dashboard_last_update'] = array(
     'bundle' => 'stanford_dashboard',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -301,7 +302,7 @@ function stanford_dashboard_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_popup',
+      'type' => 'date_select',
       'weight' => 4,
     ),
   );
