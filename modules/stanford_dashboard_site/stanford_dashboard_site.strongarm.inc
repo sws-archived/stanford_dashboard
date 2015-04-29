@@ -14,7 +14,7 @@ function stanford_dashboard_site_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_stanford_dashboard_site';
-  $strongarm->value = 'edit-submission';
+  $strongarm->value = 'edit-unique-field';
   $export['additional_settings__active_tab_stanford_dashboard_site'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -138,6 +138,38 @@ function stanford_dashboard_site_strongarm() {
   $strongarm->name = 'save_continue_stanford_dashboard_site';
   $strongarm->value = 'Save and add fields';
   $export['save_continue_stanford_dashboard_site'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_comp_stanford_dashboard_site';
+  $strongarm->value = 'each';
+  $export['unique_field_comp_stanford_dashboard_site'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_fields_stanford_dashboard_site';
+  $strongarm->value = array(
+    0 => 'field_s_site_id',
+  );
+  $export['unique_field_fields_stanford_dashboard_site'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_scope_stanford_dashboard_site';
+  $strongarm->value = 'type';
+  $export['unique_field_scope_stanford_dashboard_site'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_show_matches_stanford_dashboard_site';
+  $strongarm->value = array(
+    0 => 'show_matches',
+  );
+  $export['unique_field_show_matches_stanford_dashboard_site'] = $strongarm;
 
   return $export;
 }
