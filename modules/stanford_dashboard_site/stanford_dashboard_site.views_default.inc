@@ -426,6 +426,14 @@ function stanford_dashboard_site_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['label'] = 'Refresh Site Information';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<p><a class="btn btn-red" href="/admin/config/services/pingdomapi/stanford-dashboard-refresh?destination=dashboard/sites">Refresh Site Information</a></p>';
+  $handler->display->display_options['header']['area']['format'] = 'content_editor_text_format';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -494,6 +502,15 @@ function stanford_dashboard_site_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  /* Field: Content: Status */
+  $handler->display->display_options['fields']['field_s_site_status']['id'] = 'field_s_site_status';
+  $handler->display->display_options['fields']['field_s_site_status']['table'] = 'field_data_field_s_site_status';
+  $handler->display->display_options['fields']['field_s_site_status']['field'] = 'field_s_site_status';
+  $handler->display->display_options['fields']['field_s_site_status']['relationship'] = 'reverse_field_s_site_users_node';
+  $handler->display->display_options['fields']['field_s_site_status']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_site_status']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_site_status']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_site_status']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Taxonomy term: Human-Readable Label */
   $handler->display->display_options['fields']['field_s_term_status_label']['id'] = 'field_s_term_status_label';
   $handler->display->display_options['fields']['field_s_term_status_label']['table'] = 'field_data_field_s_term_status_label';
@@ -501,7 +518,7 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['fields']['field_s_term_status_label']['relationship'] = 'term_node_tid_1';
   $handler->display->display_options['fields']['field_s_term_status_label']['label'] = 'Status';
   $handler->display->display_options['fields']['field_s_term_status_label']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_s_term_status_label']['alter']['text'] = '<p>[field_s_term_status_label]</p>
+  $handler->display->display_options['fields']['field_s_term_status_label']['alter']['text'] = '<p class="pingdom-[field_s_site_status]">[field_s_term_status_label]</p>
 <p><strong>Last Checked:</strong> [field_s_site_last_test_time]</p>';
   $handler->display->display_options['fields']['field_s_term_status_label']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_s_term_status_label']['hide_empty'] = TRUE;
@@ -712,6 +729,15 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['label'] = 'Refresh Site Information';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<p><a class="btn btn-red" href="/admin/config/services/pingdomapi/stanford-dashboard-refresh?destination=dashboard/sites/admin">Refresh Site Information</a></p>';
+  $handler->display->display_options['header']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
