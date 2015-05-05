@@ -25,6 +25,14 @@ function stanford_pingdash_menu() {
   return $items;
 
 }
+
+/**
+ * Implements hook_cron().
+ */
+function stanford_pingdash_cron() {
+  stanford_pingdash_update_nodes();
+}
+
 /**
  * Populate the stanford_pingdash_nid table with a map of nids and Pingdom check_ids.
  */
