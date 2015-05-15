@@ -5,3 +5,15 @@
  */
 
 include_once 'stanford_dashboard_site.features.inc';
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function stanford_dashboard_site_views_pre_view(&$view, &$display_id, &$args) {
+  if($view->name == "stanford_dashboard_site_by_user") {
+    $js_path = drupal_get_path('module', 'stanford_dashboard_site') . '/js/stanford-dashboard-site.js';
+    $css_path = drupal_get_path('module', 'stanford_dashboard_site') . '/css/stanford-dashboard-site.css';
+    drupal_add_js($js_path);
+    drupal_add_css($css_path);
+  }
+}
