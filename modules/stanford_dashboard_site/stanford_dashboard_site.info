@@ -4,6 +4,7 @@ core = 7.x
 package = Stanford
 version = 7.x-1.x-dev
 project = stanford_dashboard_site
+dependencies[] = block
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = date
