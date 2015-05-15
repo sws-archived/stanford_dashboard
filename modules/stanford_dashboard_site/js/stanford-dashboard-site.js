@@ -4,10 +4,11 @@ jQuery(document).ready(function ($) {
     if ($(this).find('.pingdom-paused').length) {
       // If there is, change true to false in the a.pingdom-pause-callback href
       $(this).find('a.pingdom-pause-callback').each(function () {
-        this.href = this.href.replace("true", "false");
+        this.href = $(this).attr('href').replace("true", "false");
       });
       // And change the value from "Pause Monitoring" to "Unpause Monitoring"
-      $(this).find('a.pingdom-pause-callback').text("Unpause Monitoring");
+        var unpause = Drupal.t("Unpause Monitoring");
+      $(this).find('a.pingdom-pause-callback').text(unpause);
     }
   });
 });
