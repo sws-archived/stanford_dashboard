@@ -432,7 +432,9 @@ function stanford_dashboard_site_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Refresh Site Information';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<p><a class="btn btn-red" href="/admin/config/services/pingdomapi/stanford-dashboard-refresh?destination=dashboard/sites">Refresh Site Information</a></p>';
+  $handler->display->display_options['header']['area']['content'] = '<div><p><a class="btn btn-red" href="/admin/config/services/pingdomapi/stanford-dashboard-refresh?destination=dashboard/sites">Refresh Site Information</a></p></div>
+  <div><p><a class="btn btn-red external" href="https://helpsu.stanford.edu/helpsu/3.0/auth/helpsu-form?pcat=containerizedCMS">Get Help</a><p></div>
+  <div><p><a class="btn btn-red external" href="https://helpsu.stanford.edu/helpsu/3.0/auth/helpsu-form?pcat=containerizedCMS">Request New Site</a><p></div>';
   $handler->display->display_options['header']['area']['format'] = 'content_editor_text_format';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
