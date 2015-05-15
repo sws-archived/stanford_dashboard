@@ -1,0 +1,47 @@
+.page-dashboard-sites table {
+    width: 100%;
+}
+.page-dashboard-sites .block h2 {
+    border-bottom: 2px solid #333;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 0;
+    width: 100%;
+}
+
+.pingdom-up, 
+.pingdom-down,
+.pingdom-paused,
+.pingdom-unknown,
+.pingdom-unconfirmed_down,
+.pending {
+    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-up.png");
+    width:77px;
+    height: 78px;
+    color: transparent;
+    font-size: 0;
+}
+.pingdom-down {
+    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-down.png");
+}
+.pingdom-paused {
+    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-paused.png");
+}
+.pingdom-unknown {
+    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-unknownd.png");
+}
+.pingdom-unconfirmed_down {
+    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-unconfirmed-down.png");
+}
+.pending {
+    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-pending.png");
+}
+
+.views-field-field-s-term-status-label p {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: .9em;
+}
+.views-field-field-s-term-status-label strong {
+    display: block;
+}
