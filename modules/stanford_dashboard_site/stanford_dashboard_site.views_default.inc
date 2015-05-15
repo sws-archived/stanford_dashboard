@@ -629,7 +629,7 @@ function stanford_dashboard_site_views_default_views() {
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
     <li><a tabindex="-1" href="[field_s_site_report]">View Detailed Report</a></li>
     <li><a tabindex="-1" href="[field_s_site_url]">Visit Site</a></li>
-    <li><a tabindex="-1" href="/pingdom/admin/config/services/pingdomapi/pause-monitoring/true/[field_s_site_id]?destination=dashboard/sites">Pause Monitoring</a></li>
+    <li><a class="pingdom-pause-callback" tabindex="-1" href="/admin/config/services/pingdomapi/pause-monitoring/true/[field_s_site_id]?destination=dashboard/sites">Pause Monitoring</a></li>
     <li class="disabled"><a tabindex="-1" href="#">Stop Server (Disabled)</a></li>
     <li class="disabled"><a tabindex="-1" href="#">Delete (Disabled)</a></li>
 
