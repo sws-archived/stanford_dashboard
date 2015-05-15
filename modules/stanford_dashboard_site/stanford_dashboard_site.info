@@ -21,6 +21,7 @@ dependencies[] = text
 dependencies[] = unique_field
 dependencies[] = views
 stylesheets[all][] = css/stanford-dashboard.css
+scripts[] = js/stanford-dashboard-site.js
 features[context][] = dashboard_site_admin
 features[context][] = dashboard_site_user
 features[ctools][] = context:context:3
