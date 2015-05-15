@@ -471,6 +471,15 @@ function stanford_dashboard_site_views_default_views() {
     'stanford_dashboard_site_type' => 0,
     'tags' => 0,
   );
+  /* Field: Content: ID */
+  $handler->display->display_options['fields']['field_s_site_id']['id'] = 'field_s_site_id';
+  $handler->display->display_options['fields']['field_s_site_id']['table'] = 'field_data_field_s_site_id';
+  $handler->display->display_options['fields']['field_s_site_id']['field'] = 'field_s_site_id';
+  $handler->display->display_options['fields']['field_s_site_id']['relationship'] = 'reverse_field_s_site_users_node';
+  $handler->display->display_options['fields']['field_s_site_id']['label'] = '';
+  $handler->display->display_options['fields']['field_s_site_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_site_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_site_id']['type'] = 'text_plain';
   /* Field: Content: Site URL */
   $handler->display->display_options['fields']['field_s_site_url_1']['id'] = 'field_s_site_url_1';
   $handler->display->display_options['fields']['field_s_site_url_1']['table'] = 'field_data_field_s_site_url';
@@ -620,7 +629,7 @@ function stanford_dashboard_site_views_default_views() {
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
     <li><a tabindex="-1" href="[field_s_site_report]">View Detailed Report</a></li>
     <li><a tabindex="-1" href="[field_s_site_url]">Visit Site</a></li>
-    <li><a tabindex="-1" href="#">Pause Monitoring</a></li>
+    <li><a tabindex="-1" href="/pingdom/admin/config/services/pingdomapi/pause-monitoring/true/[field_s_site_id]?destination=dashboard/sites">Pause Monitoring</a></li>
     <li class="disabled"><a tabindex="-1" href="#">Stop Server (Disabled)</a></li>
     <li class="disabled"><a tabindex="-1" href="#">Delete (Disabled)</a></li>
 

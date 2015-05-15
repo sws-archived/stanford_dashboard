@@ -112,6 +112,7 @@ function _stanford_pingdash_refresh() {
  */
 function _stanford_pingdash_pause_toggle($pause, $checkid) {
   pingdom_api_wsclient_modify_multiple_checks($pause, 1, $checkid);
+  stanford_pingdash_update_nodes();
   if($pause == "true") {
     drupal_set_message(t("Paused site monitoring."));
   }
