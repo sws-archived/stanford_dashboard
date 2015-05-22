@@ -13,31 +13,29 @@
 }
 
 /* pingdom status icons */
-.pingdom-up, 
-.pingdom-down,
-.pingdom-paused,
-.pingdom-unknown,
-.pingdom-unconfirmed_down,
-.pending {
+.pingdom-up:before, 
+.pingdom-down:before,
+.pingdom-paused:before,
+.pingdom-unknown:before,
+.pingdom-unconfirmed_down:before,
+.pending:before {
     background-image: url("../img/status-up.png");
     width:77px;
     height: 78px;
-    color: transparent;
-    font-size: 0;
 }
-.pingdom-down {
+.pingdom-down:before {
     background-image: url("../img/status-down.png");
 }
-.pingdom-paused {
+.pingdom-paused:before {
     background-image: url("../img/status-paused.png");
 }
-.pingdom-unknown {
+.pingdom-unknown:before {
     background-image: url("../img/status-unknown.png");
 }
-.pingdom-unconfirmed_down {
+.pingdom-unconfirmed_down:before {
     background-image: url("../img/status-unconfirmed-down.png");
 }
-.pending {
+.pending:before {
     background-image: url("../img/status-pending.png");
 }
 
