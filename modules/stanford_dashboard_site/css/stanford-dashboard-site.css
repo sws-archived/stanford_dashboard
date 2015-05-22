@@ -1,6 +1,9 @@
+/* table styles */
 .page-dashboard-sites table {
     width: 100%;
 }
+
+/* header styles */
 .page-dashboard-sites .block h2 {
     border-bottom: 2px solid #333;
     display: block;
@@ -9,6 +12,7 @@
     width: 100%;
 }
 
+/* pingdom status icons */
 .pingdom-up, 
 .pingdom-down,
 .pingdom-paused,
@@ -37,6 +41,7 @@
     background-image: url("../img/status-pending.png");
 }
 
+/* styles for pingdom status text */
 .views-field-field-s-term-status-label p {
     display: inline-block;
     vertical-align: middle;
@@ -44,4 +49,50 @@
 }
 .views-field-field-s-term-status-label strong {
     display: block;
+}
+
+/* at a glance blocks */
+.content > .view-stanford-dashboard-site-at-a-glance {
+ padding: 1em;
+ background: #eee;
+ min-height: 100px;
+}
+.content > .view-stanford-dashboard-site-at-a-glance h3 {
+  margin-top: 0;  
+  font-size: 1.5em;
+}
+.content > .view-stanford-dashboard-site-at-a-glance h3 a:hover,
+.content > .view-stanford-dashboard-site-at-a-glance h3 a:focus {
+    text-decoration: underline;
+}
+.content > .view-stanford-dashboard-site-at-a-glance.view-display-id-up_block h3 a {
+    color: #73a12a;
+}
+.content > .view-stanford-dashboard-site-at-a-glance.view-display-id-paused_block h3 a {
+    color: #666;
+}
+.content > .view-stanford-dashboard-site-at-a-glance.view-display-id-down_block h3 a {
+    color: #820000;
+}
+.view-stanford-dashboard-site-at-a-glance div > a {
+    color: #666;
+    display: list-item;
+    font-size: 0.9em;
+    line-height: 1em;
+    margin-left: 20px;
+}
+.view-stanford-dashboard-site-at-a-glance div > a:hover,
+.view-stanford-dashboard-site-at-a-glance div > a:focus {
+    text-decoration: underline;
+    color: black;
+}
+
+/* sidebar positioning */
+.sidebar {
+    margin-top: 18px;
+}
+
+/* production type stands out */
+.views-field-field-s-site-type .Production {
+    font-weight: 600;
 }
