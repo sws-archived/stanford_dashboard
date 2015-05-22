@@ -22,6 +22,10 @@
     background-image: url("../img/status-up.png");
     width:77px;
     height: 78px;
+    content: "";
+    float: left;
+    margin-right: 10px;
+    display: inline-block;
 }
 .pingdom-down:before {
     background-image: url("../img/status-down.png");
@@ -41,9 +45,12 @@
 
 /* styles for pingdom status text */
 .views-field-field-s-term-status-label p {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: .9em;
+    font-size: .8em;
+    margin-bottom: 0;
+}
+.views-field-field-s-term-status-label p:first-child {
+    font-size: 1em;
+    font-weight: 600;
 }
 .views-field-field-s-term-status-label strong {
     display: block;
