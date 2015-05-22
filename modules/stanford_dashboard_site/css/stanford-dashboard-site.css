@@ -28,7 +28,7 @@
     background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-paused.png");
 }
 .pingdom-unknown {
-    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-unknownd.png");
+    background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-unknown.png");
 }
 .pingdom-unconfirmed_down {
     background-image: url("https://anchorage-dashboard.stanford.edu/sites/default/files/status-unconfirmed-down.png");
