@@ -103,7 +103,7 @@
 }
 
 /* actions dropdown */
-.views-field-nothing li {
+.views-field-nothing .dropdown ul li {
     list-style: none;
 }
 .dropdown-toggle {
@@ -117,5 +117,9 @@
 .dropdown-toggle:hover, 
 .dropdown-toggle:focus {
     background: white;
-    border-color: #666;
+    border-color: #ddd;
+}
+.open > .dropdown-menu {
+    border: 1px solid #ddd;
+    margin-top: -2px;
 }
