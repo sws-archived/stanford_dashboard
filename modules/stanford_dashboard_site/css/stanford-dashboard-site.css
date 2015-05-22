@@ -101,3 +101,21 @@
 .views-field-field-s-site-type .Production {
     font-weight: 600;
 }
+
+/* actions dropdown */
+.views-field-nothing li {
+    list-style: none;
+}
+.dropdown-toggle {
+    background: #eee;
+    border: 1px solid #eee;
+    display: block;
+    height: 25px;
+    text-align: center;
+    width: 25px;
+}
+.dropdown-toggle:hover, 
+.dropdown-toggle:focus {
+    background: white;
+    border-color: #666;
+}
